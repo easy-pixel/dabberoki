@@ -1,0 +1,23 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <script src="app.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="style.css"></link>
+        <title>Matramino</title>
+    </head>
+    <body>
+
+        <h3>Score:<span id="score">0</span></h3>
+        <button id="start_button">Start/Pause</button>
+
+        <div id="grid">
+            <script>
+            for(x=0; x<200; x++) {
+                var box = document.createElement('div');
+                box.className = "box";
+                document.getElementById('grid').appendChild(box);
+            }
+            </script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+#grid {
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: blue;
+}
+
+.box {
+    height: 20px;
+    width: 20px;
+    background-color: orange;
+}
+
+#start_button {
+    width: 150px;
+    height: 50px;
+    font-size : 20px;
+}
