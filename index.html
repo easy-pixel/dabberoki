@@ -3,16 +3,15 @@
         <meta charset="utf-8">
         <script src="app.js" charset="utf-8"></script>
         <link rel="stylesheet" href="style.css"></link>
-        <title>Matramino</title>
+        <title>Dabberoki</title>
     </head>
     <body>
-
-        <h3>Score:<span id="score">0</span></h3>
+        <h3>Health:<span id="score">1000</span></h3>
         <button id="start_button">Start/Pause</button>
 
         <div id="grid">
             <script>
-            for(x=0; x<200; x++) {
+            for(x=0; x<800; x++) {
                 var box = document.createElement('div');
                 box.className = "box";
                 document.getElementById('grid').appendChild(box);
