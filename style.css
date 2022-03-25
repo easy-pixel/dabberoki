@@ -41,6 +41,10 @@ body {
     background: blue;
 }
 
-.bullet {
-    background: black;
+.redBullet {
+    background: red;
+}
+
+.blueBullet {
+    background: blue;
 }

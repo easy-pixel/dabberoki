@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const StartBtn = document.querySelector('#start_button');
     const ShootBtn = document.querySelector('#shoot');
     const width = 20;
-    const height = 40; 
+    const height = 38; //2 less than actual height
 
     //Roki array values
     const RedRoki = [1,width,width+1,width+2,width*2+1];
@@ -13,9 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const bullet = [1, width+1];
 
     //Roki positions
-    let redPosition = Math.floor(Math.random()*18);
-    let bluePosition = Math.floor(Math.random()*18);
-    let bulletPosition = redPosition;
+    let redPosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height)*width));
+    let bluePosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height)*width));
+    let redBulletPosition = redPosition;
+    let blueBulletPosition = bluePosition;
 
     //Start button initiates game
     StartBtn.onclick = function() {init()};
@@ -42,9 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
         undrawRoki();
-        redPosition = Math.floor(Math.random()*18);
-        bluePosition = Math.floor(Math.random()*18);
-        bulletPosition = redPosition;
+        redPosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height)*width));
+        bluePosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height)*width));
+        redBulletPosition = redPosition;
+        blueBulletPosition = bluePosition;
         drawRoki();
         StartBtn.innerHTML = "Reset Game";
     } 
@@ -52,17 +54,20 @@ document.addEventListener('DOMContentLoaded', () => {
     shoot =()=> {
         unspawnBullet =()=> {
             bullet.forEach(index => {
-                boxes[bulletPosition + index].classList.remove('bullet')
+                boxes[redBulletPosition + index].classList.remove('redBullet');
+                boxes[blueBulletPosition + index].classList.remove('blueBullet');
             })
         }
         spawnBullet =()=> {
             bullet.forEach(index => {
-                boxes[bulletPosition + index].classList.add('bullet')
+                boxes[redBulletPosition + index].classList.add('redBullet')
+                boxes[blueBulletPosition + index].classList.add('blueBullet');
             })
         }
         moveDown =()=> {
             unspawnBullet();
-            bulletPosition += width;
+            redBulletPosition += width;
+            blueBulletPosition += width;
             spawnBullet();
         }
         setInterval(moveDown, 50)
