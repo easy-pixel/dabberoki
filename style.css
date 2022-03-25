@@ -26,10 +26,21 @@ body {
     font-size : 20px;
 }
 
+#shoot {
+    width: 100px;
+    height: 40px;
+    font-size: 10px;
+    color: red;
+}
+
 .redRoki {
     background: red;
 }
 
 .blueRoki {
     background: blue;
+}
+
+.bullet {
+    background: black;
 }
