@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Roki positions
     let redPosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height)*width));
-    let bluePosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height)*width));
+    let bluePosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height/2)*width)+height/2);
     let redBulletPosition = redPosition;
     let blueBulletPosition = bluePosition;
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         undrawRoki();
         redPosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height)*width));
-        bluePosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height)*width));
+        bluePosition = (Math.floor(Math.random()*18))+((Math.floor(Math.random()*height/2)*width)+height/2);
         redBulletPosition = redPosition;
         blueBulletPosition = bluePosition;
         drawRoki();
@@ -69,6 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
             redBulletPosition += width;
             blueBulletPosition += width;
             spawnBullet();
+            if(boxes.className = 'taken'){
+                unspawnBullet();
+                redBulletPosition = redPosition;
+                blueBulletPosition = bluePosition;
+            }
         }
         setInterval(moveDown, 50)
     }
